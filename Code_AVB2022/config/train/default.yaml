@@ -1,0 +1,12 @@
+trainer:
+    gpus: 1
+    min_epochs: 10
+    max_epochs: 100
+    #min_steps: 10000
+    #max_steps: 30000
+    precision: 16
+    accumulate_grad_batches: 1
+    gradient_clip_val: 1
+    auto_lr_find: false #false
+lr: 1e-4  # 1e-4 # 2e-5
+lr_ft: 1e-5  # 1e-5 #2e-6

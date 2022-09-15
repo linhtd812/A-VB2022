@@ -1,0 +1,16 @@
+feature_extractor:
+    _target_: models.model.Wav2vecWrapper_Spec # Wav2vecWrapper_Spec Wav2vecWrapper
+model:
+    _target_: models.model.ChainModel_Relation_Attention_GRU_Spec  # models.model.ChainModel_Relation_Attention_GRU_Spec # models.model.ChainModel_Relation_Attention_GRU    # models.model.ChainModel_Relation_Attention_GRU  # models.model.ChainModel   # models.model.ChainModel_Multihead_Attention  models.model.ChainModel_Relation_Attention
+    # feat_dim: 768 #6373
+    feat_dim: 1024 #1024 #1024
+feature: wav
+# ssl_model: facebook/data2vec-audio-large-960h facebook/wav2vec2-base #facebook/hubert-large-ll60k #facebook/wav2vec2-large-xlsr-53 #facebook/wav2vec2-large-robust #facebook/hubert-xlarge-ll60k
+ssl_model: facebook/hubert-large-ll60k #facebook/data2vec-audio-large-960h #facebook/data2vec-audio-large-100h
+
+# # Adding 
+ssl_model_1: facebook/dino-vits16
+
+ssl_ser_ckpt: null #ser_ckpt/last.ckpt
+# ssl_ser_ckpt: ser_ckpt/last.ckpt
+chain_strategy: gt # pred, gt, ss

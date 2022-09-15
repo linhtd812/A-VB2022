@@ -1,0 +1,31 @@
+wav_path: data/wav_trimmed
+feat_path: data/feats
+wav: true
+copy: true
+# padding: false
+num_workers: 8 # DEBUG
+
+max_wav_length: 3.5
+features: ['compare'] # "compare", "deepspectrum", "egemaps", "openxbow"
+sr: 16000
+utterance_per_speaker: 4 #currently only used for DA training
+emotion_label_order: default  #default, f2r, r2f, h2l, l2h
+augment:
+    enable: true #false
+    pitch: 300
+    rate: 2
+dataset:
+    _target_: dataset.ExvoDataset_Spec  # dataset.ExvoDataset
+train:
+    csv_path:  data/labels/filelists/exvo_train.csv
+    batch_size: 4 #16 #4
+    shuffle: true #true
+val:
+    # csv_path: data/labels/filelists/exvo_val.csv
+    csv_path: data/labels/filelists/exvo_test.csv
+    batch_size: 4 #16 #4
+    shuffle: false
+# test:
+#     csv_path: data/labels/filelists/exvo_test.csv
+#     batch_size: 4
+#     shuffle: false
